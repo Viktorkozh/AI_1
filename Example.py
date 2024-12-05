@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 import heapq
 import math
 from collections import deque
@@ -23,15 +25,17 @@ class Problem:
         return 0
 
     def __str__(self):
-        return '{}({!r}, {!r})'.format(type(self).__name__, self.initial, self.goal)
+        return "{}({!r}, {!r})".format(type(self).__name__, self.initial, self.goal)
 
 
 class Node:
     def __init__(self, state, parent=None, action=None, path_cost=0):
-        self.__dict__.update(state=state, parent=parent, action=action, path_cost=path_cost)
+        self.__dict__.update(
+            state=state, parent=parent, action=action, path_cost=path_cost
+        )
 
     def __repr__(self):
-        return '<{}>'.format(self.state)
+        return "<{}>".format(self.state)
 
     def __len__(self):
         return 0 if self.parent is None else (1 + len(self.parent))
@@ -63,8 +67,8 @@ class Node:
 
 
 # Initialize the failure and cutoff nodes
-Node.failure = Node('failure', path_cost=math.inf)
-Node.cutoff = Node('cutoff', path_cost=math.inf)
+Node.failure = Node("failure", path_cost=math.inf)
+Node.cutoff = Node("cutoff", path_cost=math.inf)
 
 
 FIFOQueue = deque
@@ -90,6 +94,7 @@ class PriorityQueue:
 
     def __len__(self):
         return len(self.items)
-    
-if __name__=="__main__":
+
+
+if __name__ == "__main__":
     print("Stuff")
